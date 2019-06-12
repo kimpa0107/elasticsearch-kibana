@@ -1,15 +1,19 @@
-version: "2"
+version: '2.2'
 services:
   elasticsearch:
-    image: kimpa0107/elasticsearch:5.6.16-alpine
+    image: kimpa0107/elasticsearch:7.1.1
     container_name: elasticsearch
-    ports:
-      - "9200:9200"
+    environment:
+      - discovery.type=single-node
     volumes:
-      - ./data/:/usr/share/elasticsearch/data/
-      - ./config/:/usr/share/elasticsearch/config/
+      - ./data:/usr/share/elasticsearch/data
+      #- ./config:/usr/share/elasticsearch/config
+      #- ./plugins:/usr/share/elasticsearch/plugins
+    ports:
+      - 9200:9200
+      - 9300:9300
   kibana:
-    image: kimpa0107/kibana:5.5.2
+    image: kimpa0107/kibana:7.1.1
     container_name: kibana
     ports:
       - "5601:5601"
