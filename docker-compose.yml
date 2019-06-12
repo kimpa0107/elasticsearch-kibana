@@ -8,7 +8,7 @@ services:
     volumes:
       - ./data:/usr/share/elasticsearch/data
       - ./config:/usr/share/elasticsearch/config
-      - ./plugins:/usr/share/elasticsearch/plugins
+      #- ./plugins:/usr/share/elasticsearch/plugins
     ports:
       - "9200:9200"
       - "9300:9300"
